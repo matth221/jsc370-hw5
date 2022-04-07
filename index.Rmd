@@ -7,3 +7,4 @@ output:
         toc_float: TRUE
 ---
 
+The second page contains 3 different interactive visualizations using my final project data regarding Smoking, Alcohol Consumption, and Life Expectancy. It can be accessed from the top left header on this page.

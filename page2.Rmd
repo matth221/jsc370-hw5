@@ -1,0 +1,120 @@
+---
+title: "Second Page"
+author: "Christopher Matthew"
+date: "4/5/2022"
+output: 
+  html_document:
+    toc: True
+    toc_float: True
+---
+
+<br>
+I will showcase a few interactive visuals here. There will also be a short description for each of the plot.
+<br>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(dplyr)
+library(data.table)
+library(tidyverse)
+library(plotly)
+library(knitr)
+library(widgetframe)
+library(DT)
+data <- read_csv("clean_data.csv")[,c(2:5)]
+```
+
+```{r}
+p1 <- data %>% 
+  plot_ly(x = ~smokepercentage, y = ~alcohol_consumption, z = ~life_expectancy_at_birth,
+          type = 'scatter3d', mode = 'markers', color = ~Country,
+          hoverinfo = 'text',
+          text = ~paste( paste(Country, ":", sep=""), paste(" Smoking Rates: ", smokepercentage, sep="") , paste(" Average Alcohol Consumption: ", 
+                        alcohol_consumption, sep=""), paste(" Life Expectancy: ", life_expectancy_at_birth, sep=""), sep = "<br>")) %>% 
+  layout(title = "Smoking Rates, Average Alcohol Consumption, and Life Expectancy Around the World",
+         yaxis = list(title = "Average Alcohol Consumption"), xaxis = list(title = "Smoking Rates"),
+         hovermode = "compare")
+```
+
+```{r}
+p2 <- data %>% 
+  plot_ly(x = ~smokepercentage, y = ~alcohol_consumption,
+          type = 'scatter', mode = 'markers', color = ~Country,
+          size = ~life_expectancy_at_birth, sizes = c(5, 30), marker = list(sizemode='diameter', opacity=0.5),
+          hoverinfo = 'text',
+          text = ~paste( paste(Country, ":", sep=""), paste(" Smoking Rates: ", smokepercentage, sep="") , paste(" Average Alcohol Consumption: ", 
+                        alcohol_consumption, sep=""), sep = "<br>")) %>% 
+  layout(title = "Smoking Rates and Average Alcohol Consumption Around the World",
+                  yaxis = list(title = "Average Alcohol Consumption"), xaxis = list(title = "Smoking Rates"),
+         hovermode = "compare")
+```
+
+```{r}
+p3 <- data %>% 
+  plot_ly(x = ~smokepercentage, type = 'histogram', xbins = list(size = 2, end = 100))%>% 
+  layout(title = "Histogram of Smoking Rates Around the World",
+                  yaxis = list(title = "Frequency"), xaxis = list(title = "Smoking Rates"))
+```
+
+```{r}
+p4 <- data %>% 
+  plot_ly(x = ~alcohol_consumption, type = 'histogram', xbins = list(size = 1, end = 100))%>% 
+  layout(title = "Histogram of Average Alcohol Consumption Around the World",
+                  yaxis = list(title = "Frequency"), xaxis = list(title = "Average Alcohol Consumption"))
+```
+
+```{r}
+p5 <- data %>% 
+  plot_ly(x = ~life_expectancy_at_birth, type = 'histogram', xbins = list(size = 2, end = 200))%>% 
+  layout(title = "Histogram of Life Expectancy at Birth Around the World",
+                  yaxis = list(title = "Frequency"), xaxis = list(title = "Life Expectancy at Birth"))
+```
+
+# Interactive Visualizations {.tabset}
+
+## 3D Scatterplot
+```{r}
+p1
+```
+
+## 2D Scatterplot + Size
+```{r}
+p2
+```
+
+## Histogram 1
+```{r}
+p3
+```
+
+## Histogram 2
+```{r}
+p4
+```
+
+## Histogram 3
+```{r}
+p5
+```
+
+# Description {.tabset}
+
+## 3D Scatterplot
+
+This plot shows the value of each variable for every country which includes the smoking rates, average alcohol consumption, and life expectancy at birth.
+
+## 2D Scatterplot + Size
+
+This plot shows the value of smoking rates and average alcohol consumption for every country and each point size is represented by the life expectancy at birth of the country. Generally, we want to see that the country with lower smoking rates and/or average alcohol consumption will have a bigger circle radius.
+
+## Histogram 1
+
+This plot shows the histogram of the value for smoking rates for each country. Hovering the cursor to the bar will give you (x - y, z) which means that there are z observation with value between x and y.
+
+## Histogram 2
+
+This plot shows the histogram of the value for average alcohol consumption for each country. Hovering the cursor to the bar will give you (x - y, z) which means that there are z observation with value between x and y.
+
+## Histogram 3
+
+This plot shows the histogram of the value for life expectancy at birth for each country. Hovering the cursor to the bar will give you (x - y, z) which means that there are z observation with value between x and y.
