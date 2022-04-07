@@ -14,7 +14,7 @@ I will showcase a few interactive visuals here. There will also be a short descr
 
 First, we have to load any necessary libraries and data needed to be able to create the visualizations.
 
-```{r setup, include=FALSE}
+```{r setup, warning = FALSE, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(dplyr)
 library(tidyverse)
