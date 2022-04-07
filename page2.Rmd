@@ -12,18 +12,27 @@ output:
 I will showcase a few interactive visuals here. There will also be a short description for each of the plot.
 <br>
 
+# First Step
+
+<br>
+First, we have to load any necessary libraries and data needed to be able to create the visualizations.
+<br>
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 library(dplyr)
-library(data.table)
 library(tidyverse)
 library(plotly)
-library(knitr)
-library(widgetframe)
-library(DT)
 data <- read_csv("clean_data.csv")[,c(2:5)]
 ```
 
+# Code {.tabset}
+
+<br>
+These are the codes for each of the plotly figures that I'm going to make.
+<br>
+
+## 3D Scatterplot
 ```{r}
 p1 <- data %>% 
   plot_ly(x = ~smokepercentage, y = ~alcohol_consumption, z = ~life_expectancy_at_birth,
@@ -35,7 +44,7 @@ p1 <- data %>%
          yaxis = list(title = "Average Alcohol Consumption"), xaxis = list(title = "Smoking Rates"),
          hovermode = "compare")
 ```
-
+## 2D Scatterplot + Size
 ```{r}
 p2 <- data %>% 
   plot_ly(x = ~smokepercentage, y = ~alcohol_consumption,
@@ -48,21 +57,21 @@ p2 <- data %>%
                   yaxis = list(title = "Average Alcohol Consumption"), xaxis = list(title = "Smoking Rates"),
          hovermode = "compare")
 ```
-
+## Histogram 1
 ```{r}
 p3 <- data %>% 
   plot_ly(x = ~smokepercentage, type = 'histogram', xbins = list(size = 2, end = 100))%>% 
   layout(title = "Histogram of Smoking Rates Around the World",
                   yaxis = list(title = "Frequency"), xaxis = list(title = "Smoking Rates"))
 ```
-
+## Histogram 2
 ```{r}
 p4 <- data %>% 
   plot_ly(x = ~alcohol_consumption, type = 'histogram', xbins = list(size = 1, end = 100))%>% 
   layout(title = "Histogram of Average Alcohol Consumption Around the World",
                   yaxis = list(title = "Frequency"), xaxis = list(title = "Average Alcohol Consumption"))
 ```
-
+## Histogram 3
 ```{r}
 p5 <- data %>% 
   plot_ly(x = ~life_expectancy_at_birth, type = 'histogram', xbins = list(size = 2, end = 200))%>% 
@@ -72,32 +81,40 @@ p5 <- data %>%
 
 # Interactive Visualizations {.tabset}
 
+<br>
+Final Result!
+<br>
+
 ## 3D Scatterplot
-```{r}
+```{r, echo = F}
 p1
 ```
 
 ## 2D Scatterplot + Size
-```{r}
+```{r, echo = F}
 p2
 ```
 
 ## Histogram 1
-```{r}
+```{r, echo = F}
 p3
 ```
 
 ## Histogram 2
-```{r}
+```{r, echo = F}
 p4
 ```
 
 ## Histogram 3
-```{r}
+```{r, echo = F}
 p5
 ```
 
 # Description {.tabset}
+
+<br>
+Description for each of the visualizations above.
+<br>
 
 ## 3D Scatterplot
 
