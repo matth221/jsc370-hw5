@@ -8,15 +8,11 @@ output:
     toc_float: True
 ---
 
-<br>
 I will showcase a few interactive visuals here. There will also be a short description for each of the plot.
-<br>
 
 # First Step
 
-<br>
 First, we have to load any necessary libraries and data needed to be able to create the visualizations.
-<br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -28,9 +24,7 @@ data <- read_csv("clean_data.csv")[,c(2:5)]
 
 # Code {.tabset}
 
-<br>
 These are the codes for each of the plotly figures that I'm going to make.
-<br>
 
 ## 3D Scatterplot
 ```{r}
@@ -81,9 +75,7 @@ p5 <- data %>%
 
 # Interactive Visualizations {.tabset}
 
-<br>
 Final Result!
-<br>
 
 ## 3D Scatterplot
 ```{r, echo = F}
@@ -112,9 +104,7 @@ p5
 
 # Description {.tabset}
 
-<br>
 Description for each of the visualizations above.
-<br>
 
 ## 3D Scatterplot
 
