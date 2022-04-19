@@ -7,4 +7,15 @@ output:
         toc_float: TRUE
 ---
 
+How does smoking, alcohol consumption, and happiness effect life expectancy at birth of general world
+population? It is a common knowledge that smoking, drinking excessive amount of alcohol, or being sad and depressed
+will negatively impact your health but just how detrimental they will affect
+your life. This paper will emphasize how life expectancy get affected across various quantities of
+smoking, alcohol consumption, and happiness in the countries of the world and how I am going to
+generalize the results to the general population.
+
+Even though smoking reduces someone’s average life expectancy by 2.5 years in Canada
+(Manuel, D. G., 2012, p.1), alcohol reduces it by 1.5 years in Europe (Janssen et al., 2021,
+p.937), USA drink plenty of alcohol and smoke, yet they have a relatively high life expectancy. In addition, compared to very happy people, the risk of death over the follow-up period is 14% (95% CI 1.06 – 1.22) higher among those who are not happy (Lawrence et al., 2015). Interestingly, intake of both smoking and alcohol only contributes to -0.07 years in life expectancy of Nordic countries (Östergren et al., 2019, p.336). This piqued my interest in pursuing this topic because the trend of life expectancy as smoking, alcohol consumption, and happiness fluctuates is still unknown for general population.
+
 The second page contains 3 different interactive visualizations using my final project data regarding Smoking, Alcohol Consumption, and Life Expectancy. It can be accessed from the top left header on this page.
